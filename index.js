@@ -3,6 +3,10 @@ const app = express();
 const port = 4000;
 const db = require('./config/mongoose');
 
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+
 app.use('/', require('./routes/index'))
 
 app.listen(port, function(err){
