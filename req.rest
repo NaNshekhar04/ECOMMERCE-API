@@ -2,11 +2,20 @@
 POST  http://localhost:4000/products/create 
 Content-Type: application/json
 
+[
 {
     "name": "hockey",
     "quantity": 5
+},
+{
+    "name":"BasketBall",
+    "quantity":6
+}, 
+{
+    "name":"VolleyBall",
+    "quantity": 5
 }
-
+]
 ###
 GET http://localhost:4000/products
 
@@ -16,4 +25,11 @@ DELETE http://localhost:4000/products/634ad58d0708bf541be66423
 
 
 ###
+DELETE http://localhost:4000/products/634ad6bf3981c09d261bf689
+
+###
 POST http://localhost:4000/products/634ac23e87d511847872627e/updateQuantity/10
+
+
+###
+POST http://localhost:4000/products/634ad7a23981c09d261bf695/updateQuantity/10
