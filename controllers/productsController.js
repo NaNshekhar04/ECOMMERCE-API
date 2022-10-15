@@ -74,3 +74,46 @@ module.exports.eachProducts = async function (req, res) {
       return;
     }
   };
+
+
+
+  module.exports.updateProduct = async function (req, res) {
+    try {
+      let id = req.params.id;
+      let num = parseInt(req.params.num);
+  
+      let product = await Product.findById(id);
+  
+      if (product) {
+        let q = product.quantity;
+        let result = q + num;
+  
+        if (result < 0) {
+          return res.json({
+            data: {
+              message:
+                "You can not decrease quantity because you have less number of product quantity",
+            },
+          });
+        } else if (result >= 0) {
+          product.quantity += num;
+          await product.save();
+          return res.status(200).json({
+            product,
+            data: {
+              message: "Product updated successfully",
+            },
+          });
+        }
+      } else {
+        return res.status(400).json({
+          data: {
+            message: "Product not found",
+          },
+        });
+      }
+    } catch (err) {
+      console.log("error while updating product quantity", err);
+      return;
+    }
+  };
