@@ -10,3 +10,6 @@ Content-Type: application/json
 ###
 GET http://localhost:4000/products
 
+
+###
+DELETE http://localhost:4000/products/634ac54a70bf5cc5e394e57f
