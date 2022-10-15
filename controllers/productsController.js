@@ -49,4 +49,28 @@ module.exports.eachProducts = async function (req, res) {
   };
 
 
- 
+  module.exports.deleteProduct =  async function (req, res) {
+    try {
+      let id = req.params.id;
+  
+      let product = await Product.findById(id);
+      if (product) {
+        await Product.findByIdAndDelete(id);
+  
+        return res.status(200).json({
+          data: {
+            message: "Product deleted ",
+          },
+        });
+      } else {
+        return res.status(404).json({
+          data: {
+            message: "Product not found",
+          },
+        });
+      }
+    } catch (err) {
+      console.log("Error while deleteing product", err);
+      return;
+    }
+  };
