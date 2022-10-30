@@ -1,3 +1,5 @@
+// IMPORTING MONGOOSE FOR CREATING SCHEMA INTO OUR DATABASE 
+
 const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema({

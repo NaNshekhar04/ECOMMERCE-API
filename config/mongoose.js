@@ -1,3 +1,5 @@
+// MAKING UP CONNECTION TO OUR DATABASE VIA MONGOOSE 
+
 const mongoose = require('mongoose');
 
 mongoose.connect("mongodb://localhost:27017/E-Commerce_API");
